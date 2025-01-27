@@ -49,6 +49,9 @@ else
   rm -f $DEST/*.*
 fi
 
+# copy index
+cp $REPO/bin/index.html $DEST/
+
 # make a list of rdf files
 cp $REPO/*.xsl $DEST/
 cd $REPO
