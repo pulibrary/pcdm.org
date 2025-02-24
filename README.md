@@ -7,6 +7,7 @@ This is a static site with browseable versions of the ontologies in https://gith
 
 This project provides a Dockerized Nginx server configured to serve XML files from a specified directory. It uses a custom Nginx configuration to handle requests efficiently and prevent redirection loops.  The server name is configurable via an environment variable, making it easy to switch between different domains.
 
+
 ## Table of Contents
 
 - [Introduction](#introduction)
