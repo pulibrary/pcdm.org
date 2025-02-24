@@ -2,7 +2,7 @@ variable "branch_or_sha" {
   type = string
   default = "main"
 }
-job "pcdm.org-staging" {
+job "pcdm-staging" {
   region = "global"
   datacenters = ["dc1"]
   node_pool = "staging"
@@ -10,7 +10,7 @@ job "pcdm.org-staging" {
   group "web" {
     count = 2
     network {
-      port "http" { to = 3000 }
+      port "http" { to = 80 }
     }
     service {
       port = "http"
@@ -21,10 +21,6 @@ job "pcdm.org-staging" {
         image = "ghcr.io/pulibrary/pcdm.org:${ var.branch_or_sha }"
         ports = ["http"]
         force_pull = true
-      }
-      resources {
-        cpu    = 1000
-        memory = 500
       }
     }
   }
