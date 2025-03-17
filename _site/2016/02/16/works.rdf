@@ -9,24 +9,22 @@
 
   <rdf:Description rdf:about="http://pcdm.org/works#">
     <dcterms:title xml:lang="en">Portland Common Data Model: Works Extension</dcterms:title>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-04-09</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-02-16</dcterms:modified>
     <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
     <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
     <rdfs:seeAlso rdf:resource="http://iiif.io/api/presentation/2.0/"/>
     <rdfs:comment xml:lang="en">Ontology for a PCDM extension that adds subclasses of pcdm:Object
       to refine the relationships between a work and its constituent parts.  Also establishes
       links to the IIIF Presentation API.</rdfs:comment>
-    <owl:versionInfo>2021/04/09</owl:versionInfo>
-    <owl:priorVersion rdf:resource="http://pcdm.org/2016/02/16/works"/>
+    <owl:versionInfo>2016/02/16</owl:versionInfo>
   </rdf:Description>
 
   <rdfs:Class rdf:about="http://pcdm.org/works#Work">
     <rdfs:label xml:lang="en">Work</rdfs:label>
     <rdfs:comment xml:lang="en">
       A work or intellectual entity, such as a book, film, dissertation, etc.
-      Works have member Objects representing their physical structure (e.g., pages in a book),
-      FileSets to maintain representations of the entire resource (e.g. a PDF of all the pages),
-      and TopRanges representing their logical structure or structures (e.g., sections
+      Works have member FileSets representing their physical structure (e.g., pages in a book),
+      and related TopRanges representing their logical structure or structures (e.g., sections
       and chapters in a book).
     </rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
@@ -36,7 +34,7 @@
   <rdfs:Class rdf:about="http://pcdm.org/works#FileSet">
     <rdfs:label xml:lang="en">FileSet</rdfs:label>
     <rdfs:comment xml:lang="en">
-      A group of related Files, typically a single source File and any derivatives.
+      A group of related Files, typically a single master File and its derivatives.
     </rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/works#"/>

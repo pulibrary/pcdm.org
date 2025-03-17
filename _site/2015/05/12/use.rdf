@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="rdfs2html.xsl"?>
 <rdf:RDF
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -8,14 +7,13 @@
 
   <rdf:Description rdf:about="http://pcdm.org/use#">
     <dcterms:title xml:lang="en">Portland Common Data Model: Use Extension</dcterms:title>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-04-09</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-05-12</dcterms:modified>
     <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
-    <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
+    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/FF/Portland+Common+Data+Model"/>
     <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/File+Use+Vocabulary"/>
     <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add subclasses of PCDM File for the
         different roles files have in relation to the Object they are attached to.</rdfs:comment>
-    <owl:versionInfo>2021/04/09</owl:versionInfo>
-    <owl:priorVersion rdf:resource="http://pcdm.org/2015/05/12/use"/>
+    <owl:versionInfo>2015/05/12</owl:versionInfo>
   </rdf:Description>
 
   <rdfs:Class rdf:about="http://pcdm.org/use#ExtractedText">
@@ -41,23 +39,11 @@
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
   </rdfs:Class>
 
-  <rdfs:Class rdf:about="http://pcdm.org/use#PreservationFile">
-    <rdfs:label xml:lang="en">preservation file</rdfs:label>
-    <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
-        preservation.</rdfs:comment>
-    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
-    <dcterms:replaces rdf:resource="http://pcdm.org/use#PreservationMasterFile"/>
-    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
-  </rdfs:Class>
-
   <rdfs:Class rdf:about="http://pcdm.org/use#PreservationMasterFile">
     <rdfs:label xml:lang="en">preservation master file</rdfs:label>
     <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
         preservation.</rdfs:comment>
-    <rdfs:comment>Note: This class has been deprecated in favor of PreservationFile.</rdfs:comment>
     <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
-    <dcterms:isReplacedBy rdf:resource="http://pcdm.org/use#PreservationFile"/>
-    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
   </rdfs:Class>
 

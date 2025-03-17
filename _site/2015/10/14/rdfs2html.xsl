@@ -56,6 +56,7 @@
       </head>
       <body>
         <header>
+          <img src="assets/duraspace_logo.png"/>
           <h1><xsl:value-of select="$title"/></h1>
             <table>
               <tr class="about">

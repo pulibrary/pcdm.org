@@ -7,6 +7,8 @@ DIR=$(dirname $ABS)
 REPO=$DIR/../../pcdm
 DEST=$DIR/../_site
 
+TMP_F=$( mktemp )
+
 function export_versions
 {
   LATEST=""
@@ -14,15 +16,17 @@ function export_versions
   BASE_FILE=$( basename "$FILE" .rdf )
   read LINE
   while [ "$LINE" ]; do
-    HASH=$( echo "$LINE" | cut -d\  -f1 )
-    DATE=$( echo "$LINE" | cut -d\  -f2 | tr '-' '/' )
-
     # export file at that version
-    mkdir -p $DEST/$DATE
-    cp $REPO/*.xsl $DEST/$DATE/
-    echo "$FILE@$HASH -> $DEST/$DATE/$BASE_FILE.rdf"
+    HASH=$( echo "$LINE" | cut -d\  -f1 )
     cd $REPO
-    git show $hash:$f > $DEST/$DATE/$BASE_FILE.rdf
+    git show $HASH:$FILE > $TMP_F
+    DATE=$( grep versionInfo $TMP_F | sed -e's/<\/.*//' -e's/.*>//' )
+
+    # copy file to date-stamped directory
+    echo "$FILE@$HASH -> $DEST/$DATE/$BASE_FILE.rdf"
+    mkdir -p $DEST/$DATE
+    cp $TMP_F $DEST/$DATE/$BASE_FILE.rdf
+    cp -v $REPO/*.xsl $DEST/$DATE/
 
     # make sure there is a .xml version
     cd $DEST/$DATE
@@ -50,7 +54,7 @@ else
 fi
 
 # copy index
-cp $REPO/bin/index.html $DEST/
+cp $DIR/index.html $DEST/
 
 # make a list of rdf files
 cp $REPO/*.xsl $DEST/
